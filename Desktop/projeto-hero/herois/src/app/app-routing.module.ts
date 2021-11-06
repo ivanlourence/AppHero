@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'hero-create',
+    loadChildren: () => import('../pages/hero-create/hero-create.module').then( m => m.HeroCreatePageModule)
+  },
+  {
+    path: 'hero-edit',
+    loadChildren: () => import('../pages/hero-edit/hero-edit.module').then( m => m.HeroEditPageModule)
+  },
 ];
 
 @NgModule({

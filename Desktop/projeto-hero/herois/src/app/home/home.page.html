@@ -1,20 +1,46 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-     I believe i can fly
+<ion-header>
+
+  <ion-navbar>
+    <ion-title color="primary">
+      Hero List
     </ion-title>
-  </ion-toolbar>
-</ion-header>
+  </ion-navbar>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-content padding>
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let hero of hero | async">
+        <ion-item>
+          <h1>{{ hero.data.categoryId}}</h1>
+          <p>{{ hero.name}}</p>
+        </ion-item>
+
+
+        <ion-item-options side="left">
+          <button ion-button color="secondary" (click)="edit(hero)">
+            <ion-icon name="create"></ion-icon>
+          </button>
+
+          <button ion-button color="danger" (click)="remove(hero)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-list>
+
+
+    <ion-fab bottom right>
+      <ion-button ion-fab color="primary" (click)="newContact()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-fab>
+
+  </ion-content>
+
+  <ion-footer>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+
+  </ion-footer>
