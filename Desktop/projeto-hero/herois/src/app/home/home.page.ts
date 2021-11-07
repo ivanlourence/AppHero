@@ -4,6 +4,8 @@ import { DatatableComponent } from '@swimlane/ngx-datatable';
 import { NavController, ToastController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { HeroCreatePage } from 'src/pages/hero-create/hero-create.page';
+import { HttpClient } from '@angular/common/http';
+import { SERVER_URL } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -15,15 +17,28 @@ export class HomePage {
 
   constructor(private apiService: ApiService,
               public navCtrl: NavController,
-              private toast: ToastController) {
+              private toast: ToastController,
+              public http: HttpClient) { }
 
+      // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
+      ngOnInit() {
+        this.listHero();
+      }
+
+
+    listHero() {
+      this.http.get(SERVER_URL +'/id').subscribe(
+        result => {
+          console.log(result,'listaherois');
+      }
+      );
+    }
      //this.hero = this.provider.getAll();
 
     /* this.create();
     this.read();
     this.update();
     this.delete(); */
-  }
 
  //id: string;
 
@@ -39,12 +54,12 @@ export class HomePage {
     });
   } */
 
-  read() {
+ /*  read() {
     this.apiService.read().subscribe(data => {
       console.log(data);
     });
   }
-
+ */
   /* update() {
     const data: any = {
       id: 0,

@@ -6,6 +6,8 @@ export const environment = {
   production: false
 };
 
+
+export const SERVER_URL='https://heroes.globalthings.net/api/Heroes?api_key=394772d23dfb455a9fc5ee31ce8ee53a';
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
