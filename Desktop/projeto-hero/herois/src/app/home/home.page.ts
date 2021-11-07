@@ -11,24 +11,24 @@ import { HeroCreatePage } from 'src/pages/hero-create/hero-create.page';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  hero: Observable<any>
+  //hero: Observable<any>;
 
   constructor(private apiService: ApiService,
-              public navCtrl:NavController,
+              public navCtrl: NavController,
               private toast: ToastController) {
 
      //this.hero = this.provider.getAll();
 
-    this.create();
+    /* this.create();
     this.read();
     this.update();
-    this.delete();
+    this.delete(); */
   }
 
-  id: string;
+ //id: string;
 
 
-  create() {
+ /*  create() {
     const data: any = {
       id: '0',
       name: 'string'
@@ -36,8 +36,8 @@ export class HomePage {
 
     this.apiService.create(data).subscribe(data => {
       console.log(data);
-    })
-  }
+    });
+  } */
 
   read() {
     this.apiService.read().subscribe(data => {
@@ -45,14 +45,14 @@ export class HomePage {
     });
   }
 
-  update() {
+  /* update() {
     const data: any = {
       id: 0,
-    }
+    };
     this.apiService.update(data).subscribe(data => {
       console.log(data);
     });
-  }
+  } */
 
   delete() {
     this.apiService.delete().subscribe(data => {
@@ -60,15 +60,15 @@ export class HomePage {
     });
   }
 
-  newContact(){
-    this.navCtrl.navigateForward('HeroCreatePage');
+  register(){
+    this.navCtrl.navigateForward('hero-create');
   }
 
   edit(){
     this.navCtrl.navigateForward('HeroCreatePage');
   }
 
-  remove(id:string) {
+  remove(id: string) {
 
   }
 

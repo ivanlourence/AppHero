@@ -1,8 +1,8 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NavController, NavParams, ToastController } from '@ionic/angular';
-import { timingSafeEqual } from 'crypto';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -12,41 +12,41 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class HeroCreatePage implements OnInit {
 
-  hero: any
+  hero: any;
   title: string;
   form: FormGroup;
 
   constructor(
     public apiService: ApiService,
-    public navParams: NavParams,
-    private formBuilder: FormBuilder,
+    //public navParams: NavParams,
+   /*  private formBuilder: FormBuilder, */
     private toast: ToastController,
     public router: Router,
     public navCtrl: NavController) {
 
-    this.hero = this.navParams.data.hero || {};
-    this.createForm();
-    this.setuPageTitle();
+    //this.hero = this.navParams.data.hero || {};
+    //this.createForm();
+    //this.setuPageTitle();
 
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    //throw new Error('Method not implemented.');
   }
 
 
-  private setuPageTitle() {
+ /*  private setuPageTitle() {
     this.title = this.navParams.data.hero ? 'Edit' : 'New Register';
-  }
+  } */
 
 
-  createForm() {
+ /*  createForm() {
     this.form = this.formBuilder.group({
       categoryId: [this.hero.data.categoryId, Validators.required],
       name: [this.hero.data.name, Validators.required]
     })
-  }
+  } */
 
-  onSubmit() {
+ /*  onSubmit() {
     if (this.form.valid) {
       this.form.value
         .then(() => {
@@ -56,5 +56,11 @@ export class HeroCreatePage implements OnInit {
         .catch();
 
     }
+  } */
+
+  voltar() {
+    this.navCtrl.pop();
   }
+
 }
+
