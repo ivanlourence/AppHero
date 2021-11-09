@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NavController, NavParams, ToastController } from '@ionic/angular';
-import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-hero-create',
@@ -17,7 +16,7 @@ export class HeroCreatePage implements OnInit {
   form: FormGroup;
 
   constructor(
-    public apiService: ApiService,
+
     //public navParams: NavParams,
    /*  private formBuilder: FormBuilder, */
     private toast: ToastController,

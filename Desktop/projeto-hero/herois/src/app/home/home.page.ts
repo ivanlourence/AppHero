@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../services/api.service';
-import { DatatableComponent } from '@swimlane/ngx-datatable';
-import { NavController, ToastController } from '@ionic/angular';
-import { Observable } from 'rxjs';
-import { HeroCreatePage } from 'src/pages/hero-create/hero-create.page';
+import { NavController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
-import { SERVER_URL } from 'src/environments/environment';
+import { ApiService } from '../services/api.service';
+
 
 @Component({
   selector: 'app-home',
@@ -13,26 +10,27 @@ import { SERVER_URL } from 'src/environments/environment';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  //hero: Observable<any>;
 
-  constructor(private apiService: ApiService,
+
+  constructor(
               public navCtrl: NavController,
-              private toast: ToastController,
+              public api: ApiService,
               public http: HttpClient) { }
 
       // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
       ngOnInit() {
-        this.listHero();
+       this.readData();
       }
 
 
-    listHero() {
-      this.http.get(SERVER_URL +'/id').subscribe(
-        result => {
-          console.log(result,'listaherois');
+
+      readData() {
+        this.api.getNews().subscribe(data => {
+          console.log(data)
+        })
       }
-      );
-    }
+
+
      //this.hero = this.provider.getAll();
 
     /* this.create();
@@ -69,11 +67,11 @@ export class HomePage {
     });
   } */
 
-  delete() {
+  /* delete() {
     this.apiService.delete().subscribe(data => {
       console.log(data);
     });
-  }
+  } */
 
   register(){
     this.navCtrl.navigateForward('hero-create');
